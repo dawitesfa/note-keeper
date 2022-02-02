@@ -1,0 +1,23 @@
+.form {
+  width: 100%;
+}
+
+.form__input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 1.6rem;
+  font-family: inherit;
+}
+
+.form__input--title {
+  font-weight: 500;
+}
+
+.form__input--note {
+  display: none;
+  margin-top: 2rem;
+  resize: none;
+  width: 100%;
+  height: auto;
+}

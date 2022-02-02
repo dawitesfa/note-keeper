@@ -1,0 +1,52 @@
+.note-item {
+  overflow-x: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: grab;
+}
+
+/* .note-item:not(:last-child) {
+  margin-bottom: 2rem;
+} */
+
+.note-item__title {
+  font-size: 1.8rem;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.note-item__note {
+  font-size: 1.4rem;
+  line-height: 1.2;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+.note-item__mod-date {
+  font-size: 1rem;
+  color: var(--color-grey-dark-3);
+  height: 2.4rem;
+}
+
+.note-item__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-container {
+  position: relative;
+}
+
+.menu-btn {
+  padding: 1rem;
+}
+
+.note-item__footer .menu-content .bi-trash3-fill {
+  color: #ccc;
+  font-size: 1.2rem;
+}
