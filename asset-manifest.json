@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.0ead5715.css",
-    "main.js": "/static/js/main.ec682ec8.js",
-    "index.html": "/index.html",
-    "main.0ead5715.css.map": "/static/css/main.0ead5715.css.map",
-    "main.ec682ec8.js.map": "/static/js/main.ec682ec8.js.map"
+    "main.css": "/note-keeper/static/css/main.0ead5715.css",
+    "main.js": "/note-keeper/static/js/main.ec682ec8.js",
+    "index.html": "/note-keeper/index.html",
+    "main.0ead5715.css.map": "/note-keeper/static/css/main.0ead5715.css.map",
+    "main.ec682ec8.js.map": "/note-keeper/static/js/main.ec682ec8.js.map"
   },
   "entrypoints": [
     "static/css/main.0ead5715.css",
