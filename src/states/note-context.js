@@ -13,13 +13,25 @@ const NoteContext = React.createContext({
 const DUM = [
   {
     id: 'id-001',
-    title: 'Dawit',
+    title: 'Lorem ipsum dolor ',
     note: 'is Here',
     date: new Date('2022, 01, 23'),
   },
   {
     id: 'id-002',
-    title: 'Dawit',
+    title: 'Consectetur Adipisicing',
+    note: 'Sed maximus massa nisl. Aliquam sit amet elit a sem varius varius ac eu sapien. Pellentesque elit tortor, fringilla vitae rhoncus hendrerit, mattis sit amet risus.',
+    date: new Date('2022, 01, 20'),
+  },
+  {
+    id: 'id-003',
+    title: 'Dolor sit amet',
+    note: 'Maecenas quis est quis purus lacinia efficitur. Sed condimentum dolor at mauris feugiat, porttitor molestie dolor dignissim. Integer aliquam malesuada magna, non aliquam velit ultricies vitae.',
+    date: new Date('2022,02,04'),
+  },
+  {
+    id: 'id-004',
+    title: 'Maecenas quis',
     note: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa quae voluptatem neque tenetur perferendis dolorem magni non sint? Minima ipsam voluptatibus sapiente architecto, explicabo voluptas laborum quia incidunt fugit eius! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa quae voluptatem neque tenetur perferendis dolorem magni non sint? Minima ipsam voluptatibus sapiente architecto, explicabo voluptas laborum quia incidunt fugit eius! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa quae voluptatem neque tenetur perferendis dolorem magni non sint? Minima ipsam voluptatibus sapiente architecto, explicabo voluptas laborum quia incidunt fugit eius!',
     date: new Date('2022, 01, 20'),
   },
