@@ -1,10 +1,10 @@
 import classes from './NoteItem.module.css';
 import Card from '../ui/Card';
-import ModalOverlay from '../ui/ModalOverlay';
 import NoteEditor from './NoteEditor';
 import ReactDom, { findDOMNode } from 'react-dom';
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
 import MenuPopup from './MenuPopup';
+import NoteContext from '../../states/note-context';
 
 const Modal = (props) => {
   return (
@@ -12,11 +12,11 @@ const Modal = (props) => {
       noteText={props.noteText}
       noteTitle={props.noteTitle}
       noteEdited={props.noteEdited}
+      onShowModal={props.onShowModal}
+      id={props.id}
+      isPinned={props.isPinned}
     />
   );
-};
-const Overlay = (props) => {
-  return <ModalOverlay onClick={props.onClick} />;
 };
 
 const NoteItem = (props) => {
@@ -25,22 +25,18 @@ const NoteItem = (props) => {
   const [isPinned, setIsPinned] = useState(props.isPinned);
   const menuEl = useRef(null);
 
+  const ctx = useContext(NoteContext);
+
   useEffect(() => {
     setToggleMenu(false);
   }, []);
 
   useEffect(() => {
-    props.onEditNote(props.title, props.note, isPinned, props.id);
+    ctx.editNote(props.title, props.note, isPinned, props.id);
   }, [isPinned]);
 
-  const onOverlayClickHandler = (e) => {
-    e.preventDefault();
-    setShowModal(true);
-  };
-
-  const onNoteEdited = (title, noteText) => {
-    props.onEditNote(title, noteText, isPinned, props.id);
-    setShowModal(true);
+  const onShowModal = (show) => {
+    setShowModal(show);
   };
 
   const getDateFormat = () => {
@@ -81,23 +77,19 @@ const NoteItem = (props) => {
     setIsPinned((prev) => !prev);
   };
   const onDeleteClickHandler = (e) => {
-    props.onEditNote('', '', isPinned, props.id);
+    ctx.editNote('', '', isPinned, props.id);
   };
 
   return (
     <>
       {!showModal
         ? ReactDom.createPortal(
-            <Overlay onClick={onOverlayClickHandler} />,
-            document.getElementById('overlay-root')
-          )
-        : ''}
-      {!showModal
-        ? ReactDom.createPortal(
             <Modal
               noteText={props.note}
               noteTitle={props.title}
-              noteEdited={onNoteEdited}
+              onShowModal={onShowModal}
+              id={props.id}
+              isPinned={props.isPinned}
             />,
             document.getElementById('modal-root')
           )

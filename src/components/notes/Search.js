@@ -1,24 +1,26 @@
 import classes from './Search.module.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import SearchResult from './SearchResult';
+import NoteContext from '../../states/note-context';
 
 const Search = (props) => {
+  const ctx = useContext(NoteContext);
   const [keyWord, setKeyWord] = useState('');
-  const [results, setResults] = useState(props.notes);
+  const [results, setResults] = useState(ctx.notes);
 
   useEffect(() => {
     setResults(
-      props.notes.filter(
+      ctx.notes.filter(
         (note) =>
           note.title.toLowerCase().includes(keyWord) ||
           note.note.toLowerCase().includes(keyWord)
       )
     );
-    props.searchActive(keyWord.length > 0);
+    ctx.searchActive(keyWord.length > 0);
   }, [keyWord]);
 
   const onOrientationClickHandler = (e) => {
-    props.posChanged(!props.grid);
+    ctx.posChanged(!ctx.isGrid);
   };
 
   const onSearchInputChange = (e) => {
@@ -35,7 +37,7 @@ const Search = (props) => {
           placeholder="Search Note..."
         />
         <div className="search__pos-icon" onClick={onOrientationClickHandler}>
-          <i className={props.grid ? 'bi bi-grid' : 'bi bi-list'}></i>
+          <i className={ctx.isGrid ? 'bi bi-grid' : 'bi bi-list'}></i>
         </div>
       </div>
       {keyWord.length !== 0 ? <SearchResult results={results} /> : ''}

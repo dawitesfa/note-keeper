@@ -1,20 +1,19 @@
 import classes from './Notes.module.css';
 import NoteItem from './NoteItem';
+import React, { useContext } from 'react';
+import NoteContext from '../../states/note-context';
 
-const Notes = (props) => {
-  const onEditNote = (title, noteText, pinned, id) => {
-    props.editNote(title, noteText, pinned, id);
-  };
+const Notes = () => {
+  const ctx = useContext(NoteContext);
   return (
     <div
       className={classes['notes']}
       style={{
-        gridTemplateColumns: !props.grid && '1fr',
+        gridTemplateColumns: !ctx.isGrid && '1fr',
       }}
     >
-      {props.notes.map((note) => (
+      {ctx.notes.map((note) => (
         <NoteItem
-          onEditNote={onEditNote}
           key={note.id}
           title={note.title}
           note={note.note}

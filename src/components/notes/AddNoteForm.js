@@ -1,6 +1,7 @@
 import classes from './AddNoteForm.module.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Button from '../ui/Button';
+import NoteContext from '../../states/note-context';
 
 const AddNoteForm = (props) => {
   const [titleFocused, setTitleFocused] = useState(false);
@@ -8,6 +9,7 @@ const AddNoteForm = (props) => {
   const [show, setShow] = useState(false);
   const [title, setTitle] = useState('');
   const [note, setNote] = useState('');
+  const ctx = useContext(NoteContext);
 
   // const saveNote = () => {
   //   if (title.trim().length === 0 && note.trim().length === 0) return;
@@ -21,7 +23,7 @@ const AddNoteForm = (props) => {
       setShow(titleFocused || noteFocused);
       if (!(titleFocused || noteFocused)) {
         if (title.trim().length === 0 && note.trim().length === 0) return;
-        props.saveNote(title.trim(), note.trim());
+        ctx.addNote(title.trim(), note.trim());
         setTitle('');
         setNote('');
       }
